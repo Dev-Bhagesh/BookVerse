@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Flip Login & Register UI</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+    <input type="checkbox" id="flip">
+
+    <div class="auth-container">
+        <div class="flip-card">
+
+            <!-- ---------- Login Form ---------- -->
+            <div class="card-side card-front">
+                <h2>Welcome Back</h2>
+
+                <form id="LoginForm">
+                    <div class="input-group" >
+                        <label>Username</label>
+                        <input id="LoginUserName" type="username" placeholder="Enter your Username" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input  id="LoginPassword" type="password" placeholder="Enter your password" required>
+                    </div>
+
+                    <button type="submit" id="LoginBtn">Login</button>
+
+                    <div class="switch">
+                        <label for="flip">Don't have an account? Register</label>
+                    </div>
+                </form>
+            </div>
+
+            <!-- ---------- Registration Form ---------- -->
+            <div class="card-side card-back">
+                <h2>Create Account</h2>
+
+                <form id="RegistrationForm">
+                    <div class="input-group">
+                        <label>Username</label>
+                        <input id="RegistrationUserName" type="username" placeholder="Username" required>
+                    </div>
+
+                    <div class="input-group" >
+                        <label>Email</label>
+                        <input id="RegistrationEmail" type="email" placeholder="Your email" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input id="RegistrationPassword" type="password" placeholder="Create a password" required>
+                    </div>
+
+                    <button type="submit" id="RegistrationBtn">Register</button>
+
+                    <div class="switch">
+                        <label for="flip">Already have an account? Login</label>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+
+</html>
