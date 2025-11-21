@@ -7,13 +7,37 @@
 }
 
 body {
-    height: 100vh;
+    /* height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #0a0f2c, #1b3b5f, #0a0f2c);
-    background-size: 400% 400%;
-    animation: bgAnimate 12s infinite ease;
+    background: url("assets/anime1.jpg") no-repeat center center fixed;
+    background-size: contain; */
+    /* background: linear-gradient(135deg, #0a0f2c, #1b3b5f, #0a0f2c); */
+    /* background-size: 400% 400%; */
+    /* animation: bgAnimate 12s infinite ease; */
+    
+    background-image: url("assets/library.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
 }
 
 @keyframes bgAnimate {
@@ -36,17 +60,54 @@ body {
     height: 500px;
     perspective: 1000px;
 }
+.Midbody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 200px;
+    /* font-family: 'Courier New', Courier, monospace; */
+    /* height: 100vh; */
+}
+.heading{
+    /* border: 2px solid black; */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* font-size: 45px; */
+    width: 800px;
+    -webkit-text-stroke: 2px black;
+    padding: 10px;
+    /* border-radius: 25px; */
+    position: relative;
+    right: 150px;
 
+    /* text-shadow: #4aa3ff; */
+    /* box-shadow: inset 5px 5px 30px rgba(0, 0, 0, 0.4); */
+    /* text-shadow: inset 5px 5px 30px rgba(0, 0, 0, 0.4); */
+}
+.headh1{
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    font-size: 100px;
+    color: #1e8cff;
+}
+.headp{
+    -webkit-text-stroke: 1px rgb(255, 255, 255,0.2);
+    font-size: 50px;
+    color: #b9cfb3;
+}
 #flip {
     display: none;
 }
-
+.h2welcom{
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    -webkit-text-stroke: 1px rgb(255, 255, 255,0.2);
+}
 .flip-card {
     width: 100%;
     height: 100%;
     position: relative;
     transition: transform 0.9s ease;
     transform-style: preserve-3d;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
 }
 
 /* ✅ FIXED Flip selector */
