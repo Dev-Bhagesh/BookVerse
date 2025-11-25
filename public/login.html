@@ -53,12 +53,12 @@
                     <form id="RegistrationForm">
                         <div class="input-group">
                             <label>Username</label>
-                            <input id="RegistrationUserName" type="username" placeholder="Username" required>
+                            <input id="RegistrationUserName" pattern="^[a-z0-9_]+$" type="username" placeholder="Username" required>
                         </div>
                         
                         <div class="input-group" >
                             <label>Email</label>
-                            <input id="RegistrationEmail" type="email" placeholder="Your email" required>
+                            <input id="RegistrationEmail" type="email" pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$" placeholder="Your email" required>
                         </div>
                         
                         <div class="input-group">
