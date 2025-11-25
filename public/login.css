@@ -24,7 +24,7 @@ body {
     box-sizing: border-box;
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    /* overflow: hidden; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -199,4 +199,67 @@ button:hover {
     color: #4aa3ff;
     cursor: pointer;
     text-decoration: underline;
+}
+
+@media (max-width: 400px) {
+   .Midbody{
+    flex-direction: column;
+    gap: 20px;
+   }
+   .headh1{
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    font-size: 50px;
+    color: #1e8cff;
+    }
+
+}
+@media (max-width: 1200px) {
+    .auth-container {
+        width: 300px;
+        height: 400px;
+    }
+    .Midbody{
+        gap: 20px;
+        width: 100vw;
+    }
+    .heading{
+        right: 0px;
+    width: 500px;
+    }
+    .headh1{
+    font-size: 70px;
+    }
+    .headp{
+    font-size: 30px;
+    }
+}
+@media(max-width: 1400px) and (min-width:1201px){
+    .Midbody{
+        gap : 200px;
+    }
+    .heading{
+        width: 500px;
+        right: 0px;
+    }
+    .headh1{
+        font-size: 70px;
+    }
+    .headp{
+        font-size: 30px;
+    }
+}
+@media(max-width:1700px) and (min-width:1401px){
+    .Midbody{
+        gap : 100px;
+    }
+    .heading{
+        width:500px;
+        right: 50px;
+    }
+    .headh1{
+        font-size: 80px;
+    }
+    .headp{
+        font-size: 40px;
+    }
 }
