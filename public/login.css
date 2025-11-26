@@ -129,7 +129,13 @@ body::before{
     backface-visibility: hidden;
     color: #fff;
 }
-
+.forgotpassword{
+    /* text-align: center; */
+    margin-top: 20px;
+    color: #4aa3ff;
+    text-decoration: underline;
+    font-size: 14px;
+}
 .card-back {
     transform: rotateY(180deg);
 }
