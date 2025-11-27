@@ -16,7 +16,8 @@ loginform.addEventListener('submit',(e)=>{
         if (data.success) {
             // Redirect to homepage with username in URL
             // window.location.href = `/homepage.html?username=${encodeURIComponent(data.username)}`;
-            window.location.href = `/homepage.html`;
+            window.location.href = `/homepage`;
+           
         } else {
             alert(data.message);
         }

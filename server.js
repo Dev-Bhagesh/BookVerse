@@ -12,9 +12,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Middleware
 app.use(express.json());
 app.use(cors());
-
 // Routes
 app.use("/api", authRoutes);
+
+app.get("/login",(req,res)=>{
+    res.sendFile(path.join(__dirname,'views','login.html'));
+})
+
+app.get("/homepage",(req,res)=>{
+    res.sendFile(path.join(__dirname,'views','homepage.html'));
+})
 
 // Connect MongoDB
 mongoose.connect("mongodb://127.0.0.1:27017/fullstack-auth", {
