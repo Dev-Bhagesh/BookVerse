@@ -1,5 +1,8 @@
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
+const crypto = require("crypto");
+const sendMail = require("../controllers/sendmail")
+// const nodemailer = require("nodemailer");
 
 // Register
 exports.registerUser = async (req, res) => {
@@ -42,3 +45,31 @@ exports.loginUser = async (req, res) => {
         res.status(500).json({ message: "Server error" });
     }
 };
+
+// Forgot Password
+exports.forgotPassword = async (req, res) => {
+    const {username}=req.body;
+    if(!username){
+        return res.status(400).json({message:"Username is required"});
+    }
+
+    try{
+        const user = await User.findOne({username});
+        if(!user){
+            return res.status(404).json({message:"User not found"});
+        }
+
+        const resetToken = crypto.randomBytes(32).toString("hex");
+        user.resetToken = resetToken;
+        user.resetTokenExpiry = Date.now() + 1000 *60 *15;
+        await user.save();
+        const resetLink = `http://localhost:5000/reset-password?${resetToken}`;
+
+        await sendMail(user.email,"Password reset email",`Click the link to reset your password : ${resetLink}`);
+
+        return res.json({message:"Password reset link sent to your mail "})
+
+    }catch(err){
+        res.status(500).json({message:"Server error" });
+    }
+}
