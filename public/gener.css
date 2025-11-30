@@ -1,0 +1,182 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    overflow-x: hidden;
+    background:
+        linear-gradient(120deg,
+            rgba(24, 95, 136, 0.7),
+            rgba(197, 197, 19, 0.7),
+            rgba(136, 24, 95, 0.7),
+            rgba(19, 197, 197, 0.7)
+        );
+        background-size: 400% 400%; /* IMPORTANT for smooth movement */
+        animation: herobackground 15s ease infinite;
+    
+        position: relative;
+}
+@keyframes herobackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: #1e8cff;
+    color: #fff;
+}
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+.nav-links .btn {
+    background: white;
+    color: #1e8cff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+/* middle body ------------------------------------------------------------------------------*/
+.middlebody{
+    position: relative;
+    width: 100vw;
+    box-sizing: border-box;
+    /* height: 100vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.generdivs{
+    margin: 20px;
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    color: hotpink;
+    font-size: 35px;
+    -webkit-text-stroke: 1px rgb(24, 21, 21);
+    background-size: cover;
+    background-position: center;
+    width: 750px;
+    padding: 15px;
+    height: 300px;
+    border-radius: 10px;
+    background-color: pink;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 3px 3px 10px black;
+}
+.romantic{
+    background: url("/assets/light_romance.jpg"),no-repeat;
+}
+.romantic:hover{
+    transform: scale(1.1);
+    box-shadow: 5px 5px 25px black;
+    /* box-shadow: 5px 5px 25px black; */
+}
+.genertext{
+    position: relative;
+    left: 100px;
+    top: 150px;
+}
+.romantictext{
+    font-family: "poppins";
+}
+
+.anime{
+    background: url("/assets/anime1.jpg"),no-repeat;
+    /* background-size: cover; */
+    background-position: center;
+    background-size: 150%;
+    background-position: -200px -300px;
+}
+.anime:hover{
+    transform: scale(1.1);
+    box-shadow: 5px 5px 25px black;
+    /* box-shadow: 5px 5px 25px black; */
+}
+.animetext{
+    color: red;
+    -webkit-text-stroke:1px white;
+    font-family: "roboto";
+}
+
+.action{
+    background: url("/assets/superhero1.jpg"),no-repeat;
+    background-size: cover;
+}
+.action:hover{
+    transform: scale(1.1);
+    box-shadow: 5px 5px 25px black;
+}
+
+.fantacy{
+    background: url("/assets/darkfantasy1.jpeg"),no-repeat;
+    background-size: cover;
+}
+.fantacy:hover{
+    transform: scale(1.1);
+    box-shadow: 5px 5px 25px black;
+}
+
+.darkromance{
+    background: url("/assets/dark_romance.jpg"),no-repeat;
+    background-size: cover;
+}
+.darkromance:hover{
+    transform: scale(1.1);
+    box-shadow: 5px 5px 25px black;
+}
+
+.scifi{
+    background: url("/assets/scifi1.jpg"),no-repeat;
+    background-size: cover;
+}
+.scifi:hover{
+    transform: scale(1.1);
+    box-shadow: 5px 5px 25px black;
+}
+
+.thriller{
+    background: url("/assets/thriller.jpg"),no-repeat;
+    background-size: cover;
+}
+.thriller:hover{
+    transform: scale(1.1);
+    box-shadow: 5px 5px 25px black;
+}
+
+.horror{
+    background: url("/assets/horror.jpg"),no-repeat;
+    background-size: cover;
+}
+.horror:hover{
+    transform: scale(1.1);
+    box-shadow: 5px 5px 25px black;
+}
+
+.biography{
+    background: url("/assets/stevejobs1.jpg"),no-repeat;
+    background-size: cover;
+}
+.biography:hover{
+    transform: scale(1.1);
+    box-shadow: 5px 5px 25px black;
+}

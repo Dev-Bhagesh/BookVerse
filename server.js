@@ -12,6 +12,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Middleware
 app.use(express.json());
 app.use(cors());
+
 // Routes
 app.use("/api", authRoutes);
 
@@ -21,6 +22,10 @@ app.get("/login",(req,res)=>{
 
 app.get("/homepage",(req,res)=>{
     res.sendFile(path.join(__dirname,'views','homepage.html'));
+})
+
+app.get("/gener",(req,res)=>{
+    res.sendFile(path.join(__dirname,'views','gener.html'));
 })
 
 // Connect MongoDB
