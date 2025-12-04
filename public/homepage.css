@@ -62,6 +62,23 @@ body {
     font-weight: bold;
 }
 
+.navtexts {
+    display: inline-block;
+    transition: all 0.1s ease-in-out;
+}
+
+.navtexts:hover {
+    transform: translateY(-5px) scale(1.1);             
+    /* transform: scale(1.1);    */
+    color: rgb(14, 13, 13);
+    text-shadow: 0px 0px 15px black;
+}
+
+.litext{
+    display: flex;
+    align-items: center;
+}
+
 /* ---------------- HERO ---------------- */
 .hero {
     height: 75vh;

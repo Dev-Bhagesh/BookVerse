@@ -54,6 +54,22 @@ body{
     border-radius: 6px;
     font-weight: bold;
 }
+
+.navtexts {
+    display: inline-block;
+    transition: all 0.1s ease-in-out;
+}
+
+.navtexts:hover {
+    transform: translateY(-5px) scale(1.1);             
+    /* transform: scale(1.1);    */
+    color: rgb(3, 3, 3);
+    text-shadow: 0px 0px 15px black;
+}
+.litext{
+    display: flex;
+    align-items: center;
+}
 /* middle body ------------------------------------------------------------------------------*/
 .middlebody{
     position: relative;
