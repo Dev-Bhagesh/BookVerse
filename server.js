@@ -40,6 +40,10 @@ app.get("/gener",(req,res)=>{
     res.sendFile(path.join(__dirname,'views','gener.html'));
 })
 
+app.get("/myprofile",(req,res)=>{
+    res.sendFile(path.join(__dirname,'views','myprofile.html'))
+})
+
 app.get('/myprofile',(req,res)=>{
     res.render('myprofile',{
         profilePic : null,
