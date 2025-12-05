@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyProfile</title>
     <link rel="stylesheet" href="/myprofile.css">
+    <!-- <link rel="stylesheet" href="myprofile.css"> -->
 </head>
 <body>
     <nav class="navbar">
@@ -27,12 +28,32 @@
                 </div>
                 <div class="biobox">
                     <div class="name">
-                        <h3>Bhagesh</h3>
+                        <h3><%= username %></h3>
                     </div>
                     <div class="bio">
-                        <p>Hay i am a developer and my name is Bhagesh i am currently learning the fullstack and the gen AI , and this BookVerse is my collage project and i am enjoying this building process now i am learning new things and discovering the new technologys and developing the new skills , for more details please visit my git hub profile and love you 3000 💪💖💝. </p>
+                        <p><%= bio %></p>
+                    </div>
+                    <button id="editProfileBtn" class="editProfileBtn">Edit Profile</button>
+                </div>
+                <!-- ----------------------------------------------------------------- -->
+                <div id="editProfileModal" class="modal">
+                    <div class="modal-content">
+                        <span id="closeEditModal" class="close">&times;</span>
+                        <h2>Edit Profile</h2>
+                        <form id="editProfileForm">
+                            <div class="form-group">
+                                <label for="editUsername">Username</label>
+                                <input type="text" id="editUsername" name="username" value="<%= username %>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editBio">Bio</label>
+                                <textarea id="editBio" name="bio" rows="4" placeholder="Write something about yourself..."><%= bio %></textarea>
+                            </div>
+                            <button class="bioeditsubmitbtn" id="biosubmitbtn" type="submit">Save Changes</button>
+                        </form>
                     </div>
                 </div>
+                <!-- ------------------------------------------------------------------ -->
             </div>
             <div class="lower">
                 <div class="lowerheading">
@@ -69,18 +90,13 @@
                 <h2>Uplods</h2>
             </div>
             <div class="postsgrid">
-                <div class="posts">1</div>
-                <div class="posts">2</div>
-                <div class="posts">3</div>
-                <div class="posts">4</div>
-                <div class="posts">5</div>
-                <div class="posts">6</div>
-                <div class="posts">7</div>
-                <div class="posts">8</div>
-                <div class="posts">9</div>
-                <div class="posts">0</div>
+                <!-- <div class="posts">1</div>
+                <div class="posts">2</div> -->
+              
             </div>
         </div>
     </div>
+    <script src="/myprofile.js"></script>
+    <!-- <script src="myprofile.js"></script> -->
 </body>
 </html>

@@ -35,7 +35,22 @@ loginform.addEventListener('submit', (e) => {
             if (data.success) {
                 // Redirect to homepage with username in URL
                 // window.location.href = `/homepage.html?username=${encodeURIComponent(data.username)}`;
-                window.location.href = `/homepage`;
+                // window.location.href = `/homepage`;
+                return fetch("http://localhost:5000/create-session", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    credentials: "include", // <-- important if you’re using cookies
+                    body: JSON.stringify({ username: data.username })
+                })
+                .then(res => res.json())
+                .then(sessionData => {
+                    if (sessionData.success) {
+                        // Session created → redirect
+                        window.location.href = "/homepage";
+                    } else {
+                        alert("Session creation failed: " + sessionData.message);
+                    }
+                });
 
             } else {
                 alert(data.message);

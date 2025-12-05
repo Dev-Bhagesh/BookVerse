@@ -7,6 +7,13 @@ const userSchema = new mongoose.Schema(
     email: {type: String,required: true,unique: true,lowercase: true,trim: true,},
 
     password: {type: String,required: true,minlength: 6,},
+
+    bio : {type:String,default:"",trim:true},
+
+    uploadedbooks:{tyep:[String],default:[]},
+
+    likedbooks:{type:[String],default:[]},
+
     resetToken: String,
     resetTokenExpiry : Date
   },
