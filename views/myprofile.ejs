@@ -59,7 +59,7 @@
                 <div class="lowerheading">
                     <h3>Upload your book</h3>
                 </div>
-                <form action="" class="bookuploadform">
+                <form action="/api/upload-book" class="bookuploadform" method="POST" enctype="multipart/form-data">
                     <div class="booktitle">
                         <label for="booktitleinput" class="titlelabel inputlabels">Title</label>
                         <input class="inputfields" type="text" name="booktitleinput" placeholder="Enter the title of the book">
@@ -79,7 +79,12 @@
                     </select>
                     </div>
                     <div class="file inputfields" >
-                        <input type="file" >
+                        <label for="bookfile">Choose Book</label>
+                        <input type="file" name="bookfile">
+                    </div>
+                    <div class="bookcover inputfields">
+                        <label for="bookcover">Choose Book Cover</label>
+                        <input type="file" name="bookcover">
                     </div>
                     <button class="uploadbtn">Upload</button>
                 </form>
