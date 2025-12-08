@@ -59,7 +59,7 @@ app.post('/create-session',async(req,res)=>{
 })
 
 app.get('/myprofile',(req,res)=>{
-    res.render('myprofile',{username:req.session.username,bio:null,})
+    res.render('myprofile',{username:req.session.username,bio:null,success:req.query.success})
 })
 
 app.get("/debug-session", (req, res) => {

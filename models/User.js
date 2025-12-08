@@ -10,9 +10,9 @@ const userSchema = new mongoose.Schema(
 
     bio : {type:String,default:"",trim:true},
 
-    uploadedbooks:{tyep:[String],default:[]},
+    uploadedbooksID:{type:[mongoose.Schema.Types.ObjectId],default:[]},
 
-    likedbooks:{type:[String],default:[]},
+    likedbooksID:{type:[mongoose.Schema.Types.ObjectId],default:[]},
 
     resetToken: String,
     resetTokenExpiry : Date

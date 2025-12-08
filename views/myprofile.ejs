@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,16 +8,17 @@
     <link rel="stylesheet" href="/myprofile.css">
     <!-- <link rel="stylesheet" href="myprofile.css"> -->
 </head>
+
 <body>
     <nav class="navbar">
         <div class="logo">BookVerse</div>
 
         <ul class="nav-links">
-            <li class="litext" ><a class="navtexts" href="/homepage">Home</a></li>
-            <li class="litext" ><a class="navtexts" href="#">Books</a></li>
-            <li class="litext" ><a class="navtexts" href="/gener">Genres</a></li>
-            <li class="litext" ><a class="navtexts" href="#">Authors</a></li>
-            <li class="litext" ><a class="navtexts btn" href="/myprofile">Profile</a></li>
+            <li class="litext"><a class="navtexts" href="/homepage">Home</a></li>
+            <li class="litext"><a class="navtexts" href="#">Books</a></li>
+            <li class="litext"><a class="navtexts" href="/gener">Genres</a></li>
+            <li class="litext"><a class="navtexts" href="#">Authors</a></li>
+            <li class="litext"><a class="navtexts btn" href="/myprofile">Profile</a></li>
         </ul>
     </nav>
 
@@ -28,10 +30,14 @@
                 </div>
                 <div class="biobox">
                     <div class="name">
-                        <h3><%= username %></h3>
+                        <h3>
+                            <%= username %>
+                        </h3>
                     </div>
                     <div class="bio">
-                        <p><%= bio %></p>
+                        <p>
+                            <%= bio %>
+                        </p>
                     </div>
                     <button id="editProfileBtn" class="editProfileBtn">Edit Profile</button>
                 </div>
@@ -47,7 +53,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="editBio">Bio</label>
-                                <textarea id="editBio" name="bio" rows="4" placeholder="Write something about yourself..."><%= bio %></textarea>
+                                <textarea id="editBio" name="bio" rows="4"
+                                    placeholder="Write something about yourself..."><%= bio %></textarea>
                             </div>
                             <button class="bioeditsubmitbtn" id="biosubmitbtn" type="submit">Save Changes</button>
                         </form>
@@ -62,7 +69,8 @@
                 <form action="/api/upload-book" class="bookuploadform" method="POST" enctype="multipart/form-data">
                     <div class="booktitle">
                         <label for="booktitleinput" class="titlelabel inputlabels">Title</label>
-                        <input class="inputfields" type="text" name="booktitleinput" placeholder="Enter the title of the book">
+                        <input class="inputfields" type="text" name="booktitleinput"
+                            placeholder="Enter the title of the book">
                     </div>
                     <div class="author">
                         <label for="authorname" class="authorlabel inputlabels">Author</label>
@@ -76,9 +84,9 @@
                             <option value="Horro">Horror</option>
                             <option value="biography">Biography</option>
                             <option value="fantacy">Fantacy</option>
-                    </select>
+                        </select>
                     </div>
-                    <div class="file inputfields" >
+                    <div class="file inputfields">
                         <label for="bookfile">Choose Book</label>
                         <input type="file" name="bookfile">
                     </div>
@@ -88,6 +96,11 @@
                     </div>
                     <button class="uploadbtn">Upload</button>
                 </form>
+                <% if(success){ %>
+                    <script>
+                        alert("book uploaded successfully") 
+                    </script>
+                <% } %>
             </div>
         </div>
         <div class="right">
@@ -97,11 +110,12 @@
             <div class="postsgrid">
                 <!-- <div class="posts">1</div>
                 <div class="posts">2</div> -->
-              
+
             </div>
         </div>
     </div>
     <script src="/myprofile.js"></script>
     <!-- <script src="myprofile.js"></script> -->
 </body>
+
 </html>
