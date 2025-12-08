@@ -104,15 +104,29 @@
             </div>
         </div>
         <div class="right">
-            <div class="posthead">
-                <h2>Uplods</h2>
-            </div>
             <div class="postsgrid">
-                <!-- <div class="posts">1</div>
-                <div class="posts">2</div> -->
-
+                <% if (!book || book.length === 0) { %>
+                    <p>No books uploaded yet.</p>
+                <% } else { %>
+                    <% book.forEach(book => { %>
+                        <div class="book-card">
+                            <div class="cover-wrapper">
+                                <img src="<%= book.coverpath %>" alt="cover" class="book-cover">
+                            </div>
+                            <div class="book-info">
+                                <h3 class="book-title"><%= book.title %></h3>
+                                <p class="book-author">Author: <%= book.author %></p>
+                                <p class="book-genre">Genre: <%= book.gener %></p>
+                                <p class="book-date">Uploaded: <%= new Date(book.createdAt).toDateString() %></p>
+                                <!-- <a href="<%= book.bookpath %>" target="_blank" class="read-btn">Read Book</a> -->
+                                <a href="/<%= book.pdfpath %>" target="_blank" class="read-btn">Read Book</a>
+                            </div>
+                        </div>
+                    <% }) %>
+                <% } %>
             </div>
-        </div>
+            
+            
     </div>
     <script src="/myprofile.js"></script>
     <!-- <script src="myprofile.js"></script> -->

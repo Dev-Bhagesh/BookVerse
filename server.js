@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const authRoutes = require("./routes/auth");
 const User = require("./models/User")
+const Book = require("./models/Book")
 const path = require('path');
 const session = require('express-session')
 const app = express();
@@ -19,6 +20,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/fullstack-auth", {
 // Middleware
 app.set('view engine','ejs')
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(express.json());
 app.use(session({
     secret:"I_Wish_For_One_Thousend_Lifes_FromGod_And_In_EveryOneOfThem_I_Will_Love_You_In_Every_Single_One_Of_Them_More_Then_The_Previous_One",
@@ -58,13 +60,41 @@ app.post('/create-session',async(req,res)=>{
     })
 })
 
-app.get('/myprofile',(req,res)=>{
-    res.render('myprofile',{username:req.session.username,bio:null,success:req.query.success})
+// app.get('/myprofile',(req,res)=>{
+//     const user = req.session.userId;
+//     const books[] = User.findOne({user})
+//     res.render('myprofile',{
+//         username:req.session.username,
+//         bio:null,
+//         success:req.query.success
+//     })
+// })
+
+app.get('/myprofile',async(req,res)=>{
+    try{
+        const userId = req.session.userId;
+        if(!userId) return res.redirect('/login')
+
+        const user = await User.findById(userId);
+        const bookIDs = user.uploadedbooksID;
+
+        const books = await Book.find({_id:{$in:bookIDs}});
+
+        res.render('myprofile',{
+            username:user.username,
+            bio : user.bio,
+            book:books,
+            success : req.query.success
+        })
+    } catch(err){
+        console.log(err)
+    }    
 })
 
-app.get("/debug-session", (req, res) => {
-    res.json(req.session);
-});
+
+// app.get("/debug-session", (req, res) => {
+//     res.json(req.session);
+// });
 
 
 app.use("/api", authRoutes);

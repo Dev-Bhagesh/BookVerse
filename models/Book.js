@@ -8,5 +8,5 @@ const bookschema = new mongoose.Schema({
     gener:{type:String,required:true},
     coverpath:{type:String,required:true},
     pdfpath:{type:String,required:true}
-})
-module.exports = mongoose.model('book',bookschema);
+} ,{ timestamps: true });
+module.exports = mongoose.model('Book',bookschema);
