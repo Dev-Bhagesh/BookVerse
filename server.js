@@ -60,16 +60,6 @@ app.post('/create-session',async(req,res)=>{
     })
 })
 
-// app.get('/myprofile',(req,res)=>{
-//     const user = req.session.userId;
-//     const books[] = User.findOne({user})
-//     res.render('myprofile',{
-//         username:req.session.username,
-//         bio:null,
-//         success:req.query.success
-//     })
-// })
-
 app.get('/myprofile',async(req,res)=>{
     try{
         const userId = req.session.userId;
@@ -95,7 +85,10 @@ app.get('/myprofile',async(req,res)=>{
 // app.get("/debug-session", (req, res) => {
 //     res.json(req.session);
 // });
-
+app.get('/bookspage',async(req,res)=>{
+    const books = await Book.find()
+    res.render('books',{book:books})
+})
 
 app.use("/api", authRoutes);
 app.listen(5000, () => console.log(`server running on http://localhost:5000/login`));

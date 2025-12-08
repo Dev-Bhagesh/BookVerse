@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/books.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">BookVerse</div>
+
+        <ul class="nav-links">
+            <li class="litext"><a class="navtexts" href="/homepage">Home</a></li>
+            <li class="litext"><a class="navtexts" href="/bookspage">Books</a></li>
+            <li class="litext"><a class="navtexts" href="/gener">Genres</a></li>
+            <li class="litext"><a class="navtexts" href="#">Authors</a></li>
+            <li class="litext"><a class="navtexts btn" href="/myprofile">Profile</a></li>
+        </ul>
+    </nav>
+
+    <div class="middlebody">
+        <div class="bookslot">
+            <div class="booksgrid">
+                <% if (!book || book.length === 0) { %>
+                    <p>No books uploaded yet.</p>
+                <% } else { %>
+                    <% book.forEach(book => { %>
+                        <div class="book-card">
+                            <div class="cover-wrapper">
+                                <img src="<%= book.coverpath %>" alt="cover" class="book-cover">
+                            </div>
+                            <div class="book-info">
+                                <h3 class="book-title"><%= book.title %></h3>
+                                <p class="book-author">Author: <%= book.author %></p>
+                                <p class="book-genre">Genre: <%= book.gener %></p>
+                                <p class="book-date">Uploaded: <%= new Date(book.createdAt).toDateString() %></p>
+                                <!-- <a href="<%= book.bookpath %>" target="_blank" class="read-btn">Read Book</a> -->
+                                <a href="/<%= book.pdfpath %>" target="_blank" class="read-btn">Read Book</a>
+                            </div>
+                        </div>
+                    <% }) %>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <script src="/books.js"></script>
+</body>
+</html>
