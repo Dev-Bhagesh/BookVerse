@@ -10,7 +10,31 @@ body {
     color: #222;
     /* overflow-x: hidden; */
 }
-
+body{
+  overflow-x: hidden;
+  background:
+      linear-gradient(120deg,
+          rgba(24, 95, 136, 0.7),
+          rgba(197, 197, 19, 0.7),
+          rgba(136, 24, 95, 0.7),
+          rgba(19, 197, 197, 0.7)
+      );
+      background-size: 400% 400%; /* IMPORTANT for smooth movement */
+      animation: herobackground 15s ease infinite;
+  
+      position: relative;
+}
+@keyframes herobackground {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
 .navbar {
     display: flex;
     justify-content: space-between;

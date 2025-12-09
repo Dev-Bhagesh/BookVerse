@@ -81,10 +81,6 @@ app.get('/myprofile',async(req,res)=>{
     }    
 })
 
-
-// app.get("/debug-session", (req, res) => {
-//     res.json(req.session);
-// });
 app.get('/bookspage',async(req,res)=>{
     const books = await Book.find()
     res.render('books',{book:books})

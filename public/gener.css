@@ -1,6 +1,8 @@
-*{
-    padding: 0px;
-    margin: 0px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 body{
     overflow-x: hidden;
@@ -41,7 +43,10 @@ body{
     gap: 30px;
     list-style: none;
 }
-
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+}
 .nav-links a {
     color: #fff;
     text-decoration: none;

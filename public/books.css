@@ -77,18 +77,23 @@ body{
     padding: 5px; */
     height: 100vh;
     width: 100vw;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 .bookslot{
-    display: grid;
+    /* display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    gap: 10px;
+    gap: 10px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /* ================================================================================================================================== */
 .booksgrid{
+    width: 95vw;
     display: grid;
+    /* border: 2px solid black; */
     /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
-    grid-template-columns: repeat(5,minmax(300px,1fr));
+    grid-template-columns: repeat(6,minmax(250px,1fr));
     gap: 20px;
     padding: 10px;
   }
