@@ -35,8 +35,6 @@ app.use(session({
 }))
 app.use(cors({ origin: "http://localhost:5000", credentials: true }));
 
-// Routes
-
 app.get("/login",(req,res)=>{
     res.sendFile(path.join(__dirname,'views','login.html'));
 })
@@ -63,8 +61,8 @@ app.post('/create-session',async(req,res)=>{
 
 app.get('/authors', async (req, res) => {
     try {
-        const authors = await User.find();   // fetch all authors
-        res.render('authors', { authors});  // send data to EJS
+        const authors = await User.find();
+        res.render('authors', { authors});
     } catch (err) {
         console.log(err);
         res.send("Error loading authors");
@@ -100,12 +98,11 @@ app.get('/bookspage',async(req,res)=>{
 
 app.get("/authors/:id", async (req, res) => {
     const user = await User.findById(req.params.id);
-
-    // FIX: Query books using uploaderID
+    
     const books = await Book.find({ uploaderID: req.params.id });
-
+    
     res.render("authorProfile", {
-        username: user.username,   // you used user.name before, that was also wrong
+        username: user.username,
         profilePic: user.profilePic,
         bio: user.bio,
         books: books
@@ -115,11 +112,11 @@ app.get("/authors/:id", async (req, res) => {
 app.get("/read/:id", async (req, res) => {
     try {
         const book = await Book.findById(req.params.id);
-
+        
         if (!book) {
             return res.status(404).send("Book not found");
         }
-
+        
         res.render("reader", { book });
     } catch (err) {
         console.log(err);
@@ -127,6 +124,22 @@ app.get("/read/:id", async (req, res) => {
     }
 });
 
+// app.get('/search/:value',async(req,res)=>{
+//     const value = req.params.value;
+//     const books = await Book.find({title:value})
+//     res.render('books',{book:books})
+// })
+
+app.get('/search/:value', async (req, res) => {
+    const value = req.params.value;
+
+    // Case-insensitive partial match
+    const books = await Book.find({
+        title: { $regex: value, $options: "i" }
+    });
+
+    res.render('books', { book: books });
+});
 
 
 app.use("/api", authRoutes);

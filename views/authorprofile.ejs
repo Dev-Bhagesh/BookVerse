@@ -21,7 +21,7 @@
   </nav>
 
   <div class="profile-header">
-      <img src="<%= profilePic %>" class="profile-img">
+      <img src="<%= profilePic || 'https://i.pravatar.cc/150?u=' %>" class="profile-img">
 
       <div class="info">
           <h2><%= username %></h2>
@@ -48,6 +48,5 @@
           <% } %>
       </div>
   </section>
-
 </body>
 </html>
