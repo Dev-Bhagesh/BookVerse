@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= username %> — Author Profile</title>
+  <link rel="stylesheet" href="/authorProfile.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+      <div class="logo">BookVerse</div>
+      <ul class="nav-links">
+          <li><a href="/homepage">Home</a></li>
+          <li><a href="/bookspage">Books</a></li>
+          <li><a href="/gener">Genres</a></li>
+          <li><a href="/authors">Authors</a></li>
+          <li><a href="/myprofile" class="btn">My Profile</a></li>
+      </ul>
+  </nav>
+
+  <div class="profile-header">
+      <img src="<%= profilePic %>" class="profile-img">
+
+      <div class="info">
+          <h2><%= username %></h2>
+          <p class="bio"><%= bio || "This author hasn’t added a bio yet." %></p>
+      </div>
+  </div>
+
+  <section class="books-section">
+      <h3>Books by <%= username %></h3>
+
+      <div class="books-grid">
+          <% if (!books || books.length === 0) { %>
+              <p class="empty-msg">This author has not uploaded any books yet.</p>
+          <% } else { %>
+              <% books.forEach(book => { %>
+                  <div class="book-card">
+                      <img src="/<%= book.coverpath%>" class="book-cover" />
+                      <h4 class="book-title"><%= book.title %></h4>
+                      <p class="book-genre"><%= book.gener %></p>
+                      <!-- READ BUTTON -->
+                      <a href="/read/<%= book._id %>" class="btn-read">Read</a>
+                  </div>
+              <% }) %>
+          <% } %>
+      </div>
+  </section>
+
+</body>
+</html>

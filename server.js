@@ -22,6 +22,7 @@ app.set('view engine','ejs')
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(express.json());
+app.use("/covers", express.static("covers"));
 app.use(session({
     secret:"I_Wish_For_One_Thousend_Lifes_FromGod_And_In_EveryOneOfThem_I_Will_Love_You_In_Every_Single_One_Of_Them_More_Then_The_Previous_One",
     resave:false,
@@ -60,6 +61,16 @@ app.post('/create-session',async(req,res)=>{
     })
 })
 
+app.get('/authors', async (req, res) => {
+    try {
+        const authors = await User.find();   // fetch all authors
+        res.render('authors', { authors});  // send data to EJS
+    } catch (err) {
+        console.log(err);
+        res.send("Error loading authors");
+    }
+});
+
 app.get('/myprofile',async(req,res)=>{
     try{
         const userId = req.session.userId;
@@ -73,6 +84,7 @@ app.get('/myprofile',async(req,res)=>{
         res.render('myprofile',{
             username:user.username,
             bio : user.bio,
+            userprofilepic: user.profilePic,
             book:books,
             success : req.query.success
         })
@@ -85,6 +97,37 @@ app.get('/bookspage',async(req,res)=>{
     const books = await Book.find()
     res.render('books',{book:books})
 })
+
+app.get("/authors/:id", async (req, res) => {
+    const user = await User.findById(req.params.id);
+
+    // FIX: Query books using uploaderID
+    const books = await Book.find({ uploaderID: req.params.id });
+
+    res.render("authorProfile", {
+        username: user.username,   // you used user.name before, that was also wrong
+        profilePic: user.profilePic,
+        bio: user.bio,
+        books: books
+    });
+});
+
+app.get("/read/:id", async (req, res) => {
+    try {
+        const book = await Book.findById(req.params.id);
+
+        if (!book) {
+            return res.status(404).send("Book not found");
+        }
+
+        res.render("reader", { book });
+    } catch (err) {
+        console.log(err);
+        res.status(500).send("Server error");
+    }
+});
+
+
 
 app.use("/api", authRoutes);
 app.listen(5000, () => console.log(`server running on http://localhost:5000/login`));

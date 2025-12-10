@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BookVerse — Authors</title>
+  <link rel="stylesheet" href="/authors.css">
+</head>
+
+<body>
+  <!-- -------------------- NAVBAR -------------------- -->
+  <nav class="navbar">
+      <div class="logo">BookVerse</div>
+
+      <ul class="nav-links">
+          <li class="litext"><a class="navtexts" href="/homepage">Home</a></li>
+          <li class="litext"><a class="navtexts" href="/bookspage">Books</a></li>
+          <li class="litext"><a class="navtexts" href="/gener">Genres</a></li>
+          <li class="litext"><a class="navtexts" href="/authors">Authors</a></li>
+          <li class="litext"><a class="navtexts btn" href="/myprofile">Profile</a></li>
+      </ul>
+  </nav>
+
+  <div class="header">
+    <h1>Meet Our Authors</h1>
+    <p>Writers shaping worlds, one story at a time</p>
+  </div>
+
+  <div class="authors-grid">
+
+    <% authors.forEach(author => { %>
+      <div class="author-card">
+        <div class="author-banner"></div>
+
+        <img class="author-img" 
+             src="<%= author.profilePic || 'https://i.pravatar.cc/150?u=' + author._id %>" 
+             alt="<%= author.username %>" />
+
+        <div class="author-info">
+          <h2 class="author-name"><%= author.username %></h2>
+          <p class="author-bio"><%= author.bio ? author.bio.substring(0, 100) : 'No bio added yet.' %>...</p>
+
+          <a href="/authors/<%= author._id %>" class="btn-profile">View Profile</a>
+        </div>
+      </div>
+    <% }) %>
+
+  </div>
+
+</body>
+</html>
