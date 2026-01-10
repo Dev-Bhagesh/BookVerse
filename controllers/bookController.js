@@ -26,9 +26,6 @@ exports.uploadBook = async (req, res) => {
     if (!coverFile || !pdfFile) {
       return res.status(400).json({ error: "Both cover image and PDF file are required" });
     }
-
-    // const coverImagePath = coverFile.path;
-    // const pdfFilePath = pdfFile.path;
     const coverImagePath = `covers/${coverFile.filename}`;
     const pdfFilePath = `uploads/${pdfFile.filename}`;
     

@@ -137,9 +137,16 @@ app.get('/search/:value', async (req, res) => {
     const books = await Book.find({
         title: { $regex: value, $options: "i" }
     });
-
     res.render('books', { book: books });
 });
+
+app.get('/gener/:gener',async(req,res)=>{
+    const value = req.params.gener;
+    const books = await Book.find({
+        gener:{$regex: value, $options:"i"}
+    });
+    res.render('books',{book:books});
+})
 
 
 app.use("/api", authRoutes);

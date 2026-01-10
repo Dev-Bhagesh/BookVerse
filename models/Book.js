@@ -10,3 +10,4 @@ const bookschema = new mongoose.Schema({
     pdfpath:{type:String,required:true}
 } ,{ timestamps: true });
 module.exports = mongoose.model('Book',bookschema);
+
