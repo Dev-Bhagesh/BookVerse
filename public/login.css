@@ -1,4 +1,3 @@
-/* -------- Global Styles ----------- */
 * {
     margin: 0;
     padding: 0;
@@ -7,16 +6,6 @@
 }
 
 body {
-    /* height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url("assets/anime1.jpg") no-repeat center center fixed;
-    background-size: contain; */
-    /* background: linear-gradient(135deg, #0a0f2c, #1b3b5f, #0a0f2c); */
-    /* background-size: 400% 400%; */
-    /* animation: bgAnimate 12s infinite ease; */
-    
     background-image: url("assets/library.jpg");
     background-repeat: no-repeat;
     background-size: cover;

@@ -124,12 +124,6 @@ app.get("/read/:id", async (req, res) => {
     }
 });
 
-// app.get('/search/:value',async(req,res)=>{
-//     const value = req.params.value;
-//     const books = await Book.find({title:value})
-//     res.render('books',{book:books})
-// })
-
 app.get('/search/:value', async (req, res) => {
     const value = req.params.value;
 

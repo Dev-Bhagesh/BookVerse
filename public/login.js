@@ -33,9 +33,6 @@ loginform.addEventListener('submit', (e) => {
         .then(res => res.json())
         .then(data => {
             if (data.success) {
-                // Redirect to homepage with username in URL
-                // window.location.href = `/homepage.html?username=${encodeURIComponent(data.username)}`;
-                // window.location.href = `/homepage`;
                 return fetch("http://localhost:5000/create-session", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
