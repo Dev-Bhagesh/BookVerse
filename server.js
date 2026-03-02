@@ -33,7 +33,7 @@ app.use(session({
 }))
 app.use(cors({ origin: "http://localhost:5000", credentials: true }));
 
-app.get("/login",(req,res)=>{
+app.get("/",(req,res)=>{
     res.sendFile(path.join(__dirname,'views','login.html'));
 })
 
@@ -146,4 +146,4 @@ app.get('/gener/:gener',async(req,res)=>{
 
 
 app.use("/api", authRoutes);
-app.listen(PORT, () => console.log(`server running on http://localhost:5000/login`));
+app.listen(PORT, () => console.log(`server running on http://localhost:${PORT}`));
