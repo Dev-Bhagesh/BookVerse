@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Connect MongoDB
-mongoose.connect(process.env.Atlas_URI)
+mongoose.connect(process.env.ATLAS_URI)
 .then(() => console.log("MongoDB connected"))
 .catch(err => console.log(err));
 
