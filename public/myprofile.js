@@ -42,25 +42,25 @@ submitbtn.addEventListener("click", () => {
 });
 
 // ========================= BOOK READER MODAL =========================
-const readerModal = document.getElementById("readerModal");
-const closeReader = document.getElementById("closeReaderModal");
-const readerFrame = document.getElementById("readerFrame");
+// const readerModal = document.getElementById("readerModal");
+// const closeReader = document.getElementById("closeReaderModal");
+// const readerFrame = document.getElementById("readerFrame");
 
-function openReader(pdfPath) {
-  readerFrame.src = "/" + pdfPath;  // load book content
-  readerModal.style.display = "block";
-}
+// function openReader(pdfPath) {
+//   readerFrame.src = pdfPath;  // load book content
+//   readerModal.style.display = "block";
+// }
 
-// Close modal
-closeReader.addEventListener("click", () => {
-  readerModal.style.display = "none";
-  readerFrame.src = ""; // unload pdf
-});
+// // Close modal
+// closeReader.addEventListener("click", () => {
+//   readerModal.style.display = "none";
+//   readerFrame.src = ""; // unload pdf
+// });
 
-// Close if clicked outside modal
-window.addEventListener("click", (e) => {
-  if (e.target === readerModal) {
-    readerModal.style.display = "none";
-    readerFrame.src = "";
-  }
-});
+// // Close if clicked outside modal
+// window.addEventListener("click", (e) => {
+//   if (e.target === readerModal) {
+//     readerModal.style.display = "none";
+//     readerFrame.src = "";
+//   }
+// });

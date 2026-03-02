@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -7,24 +8,21 @@ const Book = require("./models/Book")
 const path = require('path');
 const session = require('express-session')
 const app = express();
-
+const PORT = process.env.PORT || 5000;
 
 // Connect MongoDB
-mongoose.connect("mongodb://127.0.0.1:27017/fullstack-auth", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
+mongoose.connect(process.env.Atlas_URI)
 .then(() => console.log("MongoDB connected"))
 .catch(err => console.log(err));
 
 // Middleware
 app.set('view engine','ejs')
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+// app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(express.json());
-app.use("/covers", express.static("covers"));
+// app.use("/covers", express.static("covers"));
 app.use(session({
-    secret:"I_Wish_For_One_Thousend_Lifes_FromGod_And_In_EveryOneOfThem_I_Will_Love_You_In_Every_Single_One_Of_Them_More_Then_The_Previous_One",
+    secret:process.env.SESSION_SECRET,
     resave:false,
     saveUninitialized:false,
     cookie:{
@@ -50,6 +48,10 @@ app.get("/gener",(req,res)=>{
 app.post('/create-session',async(req,res)=>{
     const {username} = req.body;
     const userid = await User.findOne({username})
+    // just added a check
+    if (!userid) {
+        return res.status(400).json({ success: false, message: "User not found" });
+    }    
     req.session.userId = userid._id;
     req.session.username = username;
     req.session.isLoggedIn = true;
@@ -144,4 +146,4 @@ app.get('/gener/:gener',async(req,res)=>{
 
 
 app.use("/api", authRoutes);
-app.listen(5000, () => console.log(`server running on http://localhost:5000/login`));
+app.listen(PORT, () => console.log(`server running on http://localhost:5000/login`));

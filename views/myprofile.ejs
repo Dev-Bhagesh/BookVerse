@@ -124,7 +124,10 @@
                                 <p class="book-date">Uploaded: <%= new Date(book.createdAt).toDateString() %></p>
                                 <!-- <a href="<%= book.bookpath %>" target="_blank" class="read-btn">Read Book</a> -->
                                 <!-- <a href="/<%= book.pdfpath %>" target="_blank" class="read-btn">Read Book</a> -->
-                                <button class="read-btn" onclick="openReader('<%= book.pdfpath %>')">Read Book</button>
+                                <!-- <button class="read-btn" onclick="openReader('<%= book.pdfpath %>')">Read Book</button> -->
+                                <a href="<%= book.pdfpath %>" class="read-btn" download>
+                                    Download Book
+                                  </a>
                             </div>
                         </div>
                     <% }) %>
@@ -134,14 +137,14 @@
             
     </div>
     <!-- ================== PDF/EPUB READER MODAL ================== -->
-<div id="readerModal" class="modal">
+<!-- <div id="readerModal" class="modal">
   <div class="reader-modal-content">
-    <span id="closeReaderModal" class="close">&times;</span>
+    <span id="closeReaderModal" class="close">&times;</span> -->
 
     <!-- PDF/EPUB Viewer -->
-    <iframe id="readerFrame" style="width:100%; height:90vh; border:none;"></iframe>
+    <!-- <iframe id="readerFrame" style="width:100%; height:90vh; border:none;"></iframe>
   </div>
-</div>
+</div> -->
 <!-- ============================================================ -->
 
     <script src="/myprofile.js"></script>

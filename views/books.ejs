@@ -28,7 +28,8 @@
                     <% book.forEach(book => { %>
                         <div class="book-card">
                             <div class="cover-wrapper">
-                                <img src="/<%= book.coverpath %>" alt="cover" class="book-cover">
+                                <!-- <img src="/<%= book.coverpath %>" alt="cover" class="book-cover"> -->
+                                <img src="<%= book.coverpath %>" alt="cover" class="book-cover">
                             </div>
                             <div class="book-info">
                                 <h3 class="book-title"><%= book.title %></h3>
@@ -36,7 +37,8 @@
                                 <p class="book-genre">Genre: <%= book.gener %></p>
                                 <p class="book-date">Uploaded: <%= new Date(book.createdAt).toDateString() %></p>
                                 <!-- <a href="<%= book.bookpath %>" target="_blank" class="read-btn">Read Book</a> -->
-                                <a href="/<%= book.pdfpath %>" target="_blank" class="read-btn">Read Book</a>
+                                <!-- <a href="/<%= book.pdfpath %>" target="_blank" class="read-btn">Read Book</a> --> <!-- here i commented it -->
+                                <a href="<%= book.pdfpath %>"  class="read-btn">Download</a>
                             </div>
                         </div>
                     <% }) %>
