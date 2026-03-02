@@ -11,7 +11,7 @@ forgotpassword.addEventListener('click', () => {
         return;
     }
 
-    fetch("http://localhost:5000/api/forgot-password", {
+    fetch("/api/forgot-password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body:JSON.stringify({username})
@@ -25,7 +25,7 @@ loginform.addEventListener('submit', (e) => {
     let username = document.getElementById('LoginUserName').value;
     let password = document.getElementById('LoginPassword').value;
 
-    fetch("http://localhost:5000/api/login", {
+    fetch("/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password })
@@ -33,7 +33,7 @@ loginform.addEventListener('submit', (e) => {
         .then(res => res.json())
         .then(data => {
             if (data.success) {
-                return fetch("http://localhost:5000/create-session", {
+                return fetch("/create-session", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     credentials: "include", // <-- important if you’re using cookies
@@ -62,7 +62,7 @@ registrationform.addEventListener('submit', (e) => {
     let email = document.getElementById('RegistrationEmail').value;
     let password = document.getElementById('RegistrationPassword').value;
 
-    fetch("http://localhost:5000/api/register", {
+    fetch("/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, email, password })
